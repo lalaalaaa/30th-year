@@ -31,6 +31,7 @@
 
 								</section>
 
+								<!--
 								<footer class="article-footer">
 
 									<?php if(get_the_category_list(', ') != ''): ?>
@@ -39,7 +40,7 @@
 
                  					<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
 
-								</footer> <!-- end article footer -->
+								</footer>  end article footer -->
 
 							</article>
 

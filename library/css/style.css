@@ -74,7 +74,7 @@ template {
  *    user zoom.
  */
 html {
-  font-family: sans-serif;
+  font-family: 'Crimson Text', serif;
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -237,8 +237,7 @@ menu {
 
 ol,
 ul {
-  padding: 0;
-  list-style-type: none; }
+  padding: 0 0 0 1.5em; }
 
 /*
  * Corrects list images handled incorrectly in IE7.
@@ -987,9 +986,8 @@ textarea,
   vertical-align: middle;
   box-shadow: none;
   border: 0;
-  width: 100%;
-  max-width: 400px;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 95%;
+  font-family: 'Roboto', sans-serif;
   background-color: #eaedf2;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out; }
@@ -1026,7 +1024,8 @@ textarea,
   textarea:active,
   .field:focus,
   .field:active {
-    background-color: #f7f8fa; }
+    background-color: #f7f8fa; 
+    outline: none; } 
   input[type="text"].error, input[type="text"].is-invalid,
   input[type="password"].error,
   input[type="password"].is-invalid,
@@ -1247,11 +1246,11 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Crimson Text', serif;
   font-size: 100%;
   line-height: 1.5;
-  color: #5c6b80;
-  background-color: #eaedf2;
+  color: #333333;
+  background-color: #FAFAFA;
   -webkit-font-smoothing: antialiased; }
 
 /********************
@@ -1304,12 +1303,13 @@ LAYOUT & GRID STYLES
 LINK STYLES
 *********************/
 a, a:visited {
-  color: #f01d4f;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(0,0,0,.4); 
   /* on hover */
   /* on click */
   /* mobile tap color */ }
-  a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #d10e3c; }
+  a:hover, a:focus, a:visited:hover, a:visited:focus { }
   a:link, a:visited:link {
     /*
     this highlights links on iPhones/iPads.
@@ -1323,14 +1323,17 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
-  font-weight: 500;
+  font-weight: 900;
+  font-family: 'Roboto', sans-serif; 
+  letter-spacing: .015em; }
   /*
   if you're going to use webfonts, be sure to check your weights
   http://css-tricks.com/watch-your-font-weight/
   */
-  /* removing text decoration from all headline links */ }
+  /* removing text decoration from all headline links */ 
   h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
-    text-decoration: none; }
+    text-decoration: none;
+    border-bottom: 0; }
 
 h1, .h1 {
   font-size: 2.5em;
@@ -1355,17 +1358,6 @@ h5, .h5 {
   letter-spacing: 2px; }
 
 /*********************
-HEADER STYLES
-*********************/
-.header {
-  background-color: #323944; }
-
-#logo {
-  margin: 0.75em 0; }
-  #logo a {
-    color: white; }
-
-/*********************
 NAVIGATION STYLES
 *********************/
 /*
@@ -1376,12 +1368,15 @@ the navs on the site so our css is cleaner
 and more scalable.
 */
 .nav {
-  border-bottom: 0;
+  border-bottom: 1px solid rgba(0,0,0, 0.1);
+  padding-bottom: 1em;
   margin: 0;
+  text-align: center;
   /* end .menu li */
   /* highlight current page */
   /* end current highlighters */ }
   .nav li {
+    display: inline-block;
     /*
     so you really have to rethink your dropdowns for mobile.
     you don't want to have it expand too much because the
@@ -1391,9 +1386,10 @@ and more scalable.
     */ }
     .nav li a {
       display: block;
-      color: white;
+      color: #888; 
       text-decoration: none;
       padding: 0.75em;
+      border-bottom: 0;
       /*
       remember this is for mobile ONLY, so there's no need
       to even declare hover styles here, you can do it in
@@ -1404,6 +1400,20 @@ and more scalable.
     .nav li ul.children li a {
       padding-left: 30px; }
 
+/*********************
+HEADER STYLES
+*********************/
+.header { 
+  text-align: center; 
+  margin: .5em 0 1em; }
+
+#logo { margin-bottom: 0; font-size: 5em; margin-top: 1rem; }
+  #logo a { color: #333; }
+
+.site-description{ 
+  color: #888; 
+  margin-top: 0; }
+
 /* end .nav */
 /*********************
 POSTS & CONTENT STYLES
@@ -1411,16 +1421,17 @@ POSTS & CONTENT STYLES
 #content {
   margin-top: 1.5em; }
 
-.hentry {
-  background-color: white;
-  border-radius: 3px;
-  margin-bottom: 1.5em;
-  border: 1px solid #cccccc; }
+#main{
+  background: #fff;
+  padding: 1.4em; }
+
+.sidebar{
+  text-align: center; }
+
+.hentry { }
   .hentry header {
-    border-bottom: 1px solid #f8f9fa;
-    padding: 1.5em; }
+    border-bottom: 1px solid #f8f9fa; }
   .hentry footer {
-    padding: 1.5em;
     border-top: 1px solid #f8f9fa; }
     .hentry footer p {
       margin: 0; }
@@ -1441,14 +1452,21 @@ POSTS & CONTENT STYLES
 /* style by category (i.e. category-videos) */
 /* style by tag (i.e. tag-news) */
 /* post meta */
-.byline {
-  color: #9fa6b4;
+.byline,
+.hentry footer {
+  color: #888;
   font-style: italic;
   margin: 0; }
+.byline{ padding: 0 0 .75em; }
+.hentry footer{ padding: .75em 0 0; }
+.byline a,
+.hentry footer a{
+  color: #888; 
+  border-bottom-color: rgba(0,0,0,.2);}
 
 /* entry content */
 .entry-content {
-  padding: 1.5em 1.5em 0;
+  padding: 1.5em 0;
   /*
   image alignment on a screen this size may be
   a bit difficult. It's set to start aligning
@@ -1456,7 +1474,9 @@ POSTS & CONTENT STYLES
   but it's up to you. Feel free to change it up.
   */ }
   .entry-content p {
-    margin: 0 0 1.5em; }
+    margin: 0 0 1.5em; 
+    font-size: 1.1em; 
+    line-height: 1.6; }
   .entry-content table {
     width: 100%;
     border: 1px solid #eaedf2;
@@ -1676,7 +1696,7 @@ COMMENT STYLES
 COMMENT FORM STYLES
 ******************************************************************/
 .comment-respond {
-  padding: 1.5em;
+  padding-top: 1.5em;
   border-top: 1px solid #f8f9fa; }
 
 #reply-title {
@@ -1693,6 +1713,7 @@ COMMENT FORM STYLES
   margin: 1.5em 0 0.75em; }
 
 .form-allowed-tags {
+  display: none;
   padding: 1.5em;
   background-color: #f8f9fa;
   font-size: 0.9em; }
@@ -1721,6 +1742,18 @@ SIDEBARS & ASIDES
 *********************/
 .widget ul li {
   /* deep nesting */ }
+
+.widget {
+  max-width: 300px;
+  min-width: 240px;
+  display: inline-block;
+  padding: 1em 1.5em;
+  text-align: left; }
+
+  .widget_search{
+    width: 100%;
+    max-width: 100%;
+    display: block; }
 
 .no-widgets {
   background-color: white;
@@ -1853,8 +1886,7 @@ you can add resource intensive styles.
   /*********************
   LAYOUT & GRID STYLES
   *********************/
-  .wrap {
-    width: 760px; }
+  .wrap { }
 
   /*********************
   HEADER STYLES
@@ -1863,29 +1895,18 @@ you can add resource intensive styles.
   NAVIGATION STYLES
   *********************/
   .nav {
-    border: 0;
     /* end .menu ul li */
     /* highlight current page */
     /* end current highlighters */ }
-    .nav ul {
-      background: #323944;
-      margin-top: 0; }
-    .nav li {
-      float: left;
-      position: relative;
-      /*
-      plan your menus and drop-downs wisely.
-      */
-      /* showing sub-menus */ }
+    .nav ul {}
+    .nav li {}
       .nav li a {
         border-bottom: 0;
         /*
         you can use hover styles here even though this size
         has the possibility of being a mobile device.
         */ }
-        .nav li a:hover, .nav li a:focus {
-          color: white;
-          text-decoration: underline; }
+        .nav li a:hover, .nav li a:focus {}
       .nav li ul.sub-menu,
       .nav li ul.children {
         margin-top: 0;
@@ -1928,18 +1949,23 @@ you can add resource intensive styles.
     margin-top: 2.2em; }
 
   .widgettitle {
-    border-bottom: 2px solid #444;
-    margin-bottom: 0.75em; }
+    /*border-bottom: 2px solid #444; */
+    margin-bottom: -.5em; }
 
   .widget {
-    padding: 0 10px;
-    margin: 2.2em 0; }
+    opacity: .5;
+    transition: .3s linear opacity;
+    margin: .5em 0;
+    display: block; }
     .widget ul li {
       margin-bottom: 0.75em;
       /* deep nesting */ }
       .widget ul li ul {
         margin-top: 0.75em;
         padding-left: 1em; }
+
+  .widget:hover{
+    opacity: 1; }
 
   /* links widget */
   /* meta widget */
